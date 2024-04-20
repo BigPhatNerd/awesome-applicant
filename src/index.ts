@@ -2,6 +2,7 @@ import express, { Express, Request, Response} from 'express';
 import router from './routes';
 const app: Express = express();
 import dotenv from 'dotenv';
+dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +15,6 @@ app.get('/', (req: Request, res: Response) =>{
     res.send('Hello, world!')
 })
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
+const server = app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
 
-export default app;
+export default server;
